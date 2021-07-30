@@ -132,7 +132,7 @@ ul li.checked::before {
 #clr-btn {
     cursor: pointer;
     margin: 25px 40%;
-    padding: 1px;
+    padding: 3px;
     background-color: gray;
     color: white;
     font-size: x-large;
@@ -140,7 +140,7 @@ ul li.checked::before {
     font-weight: bold;
     font-style: italic;
     border: ridge;
-    border-radius: 0;
+    border-radius: 20px;
 }
 
 #clr-btn:hover {
