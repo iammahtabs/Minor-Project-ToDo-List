@@ -74,10 +74,15 @@ function check() {
 
 }
 
-if (todos !== null){
-    for (let i = 0; i < todos.length; i++) {
-        new Item(todos[i]);
+list.addEventListener('click', (ev) => {
+    if (ev.target.tagName === 'LI') {
+        ev.target.classList.toggle('checked');
     }
+}, false);
+
+
+for (let i = 0; i < todos.length; i++) {
+    new Item(todos[i]);
 }
 
 document.querySelector("#clr-btn").addEventListener('click', () => {
