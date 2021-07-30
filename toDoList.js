@@ -76,7 +76,7 @@ for (let i = 0; i < todos.length; i++) {
 }
 
 document.querySelector("#clr-btn").addEventListener('click', () => {
-    document.querySelector("li").innerHTML = "";
+    document.querySelector("ul").innerHTML = "";
     todos = [];
     window.localStorage.clear();
 });
