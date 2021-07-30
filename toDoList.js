@@ -1,17 +1,18 @@
-//'use strict';
+'use strict';
 
 const addItem = document.querySelector("#add-btn");
 let input = document.querySelector("#input-text");
 const list = document.querySelector("ul");
 
-
-if (window.localStorage.getItem("todos") === undefined) {
-    let todos = [];
+let todos = [];
+if (window.localStorage.getItem("todos") === null) {
     window.localStorage.setItem("todos", JSON.stringify(todos));
 }
 
-let todosEX = window.localStorage.getItem("todos");
-let todos = JSON.parse(todosEX);
+else{
+    let todosEX = window.localStorage.getItem("todos");
+    todos = Object.values(JSON.parse(todosEX));
+}
 
 class Item {
     constructor(itemName) {
@@ -63,20 +64,24 @@ function check() {
     }
 
     else {
-        new Item(input.value);
-        todos.push(input.value);
-        window.localStorage("todos", JSON.stringify(todos));
+        const val = input.value;
+        new Item(val);
+        todos.push(val);
+        console.log(todos);
+        window.localStorage.setItem("todos", JSON.stringify(todos));
         document.getElementById("input-text").value = "";
     }
 
 }
 
-for (let i = 0; i < todos.length; i++) {
-    new Item(todos[i]);
+if (todos !== null){
+    for (let i = 0; i < todos.length; i++) {
+        new Item(todos[i]);
+    }
 }
 
 document.querySelector("#clr-btn").addEventListener('click', () => {
-    document.querySelector("ul").innerHTML = "";
+    list.innerHTML = "";
     todos = [];
     window.localStorage.clear();
 });
