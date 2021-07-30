@@ -1,0 +1,151 @@
+body {
+    margin: 40px auto;
+    min-width: 500px;
+    max-width: 50%;
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+* {
+    box-sizing: border-box;
+    border-radius: 20px;
+}
+
+.top {
+    background-color: lightsalmon;
+    color: red;
+    text-align: center;
+    padding: 20px 30px;
+}
+
+.top:after {
+    display: table;
+    content: "";
+    clear: both;
+}
+
+#heading {
+    margin: 15px; 
+    font-size: xx-large;
+    font-weight: bolder;
+    height: 36px;
+}
+
+#heading span {
+    color: black;
+}
+
+input {
+    margin: auto;
+    padding: 10px;
+    border: inset;
+    outline: none;
+    border-radius: 20px;
+    width: 85%;
+    font-size: small;
+    float: left;
+}
+
+#add-btn {
+    background-color: lightgray;
+    color: black;
+    width: 36px;
+    padding: 8px;
+    margin-left: 20px;
+    float: left;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 100%;
+    border: 1px solid red;
+    font-size: medium;
+}
+
+
+ul {
+    margin: 0;
+    padding: 5px;
+}
+
+ul li {
+    position: relative;
+    padding: 15px 10px 15px 40px;
+    list-style-type: none;
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+    font-size: medium;
+    font-family: serif;
+    transition: 0.1s;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+ul li:hover {
+    background: cornflowerblue;
+    color: white;
+}
+
+ul li.checked {
+    background: royalblue;
+    color: black;
+    text-decoration: line-through;
+}
+
+ul li.checked::before {
+    content: '';
+    position: absolute;
+    border-color: springgreen;
+    border-style: solid;
+    border-width: 0 2px 2px 0;
+    top: 16px;
+    left: 10px;
+    transform: rotate(45deg);
+    height: 10px;
+    width: 5px;
+  }
+
+.delete {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 15px 12px 15px 12px;
+    color: red;
+}
+
+#clr-btn {
+    cursor: pointer;
+    margin: 25px 40%;
+    padding: 1px;
+    background-color: gray;
+    color: white;
+    font-size: x-large;
+    font-family: serif;
+    font-weight: bold;
+    font-style: italic;
+    border: ridge;
+    border-radius: 0;
+}
+
+#clr-btn:hover {
+    background-color: white;
+    color: gray;
+    text-shadow: 1px 1px 5px #FF0000;
+    box-shadow: 0 0 5px #0000FF;
+}
