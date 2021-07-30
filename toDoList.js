@@ -11,7 +11,7 @@ if (window.localStorage.getItem("todos") === null) {
 
 else{
     let todosEX = window.localStorage.getItem("todos");
-    todos = Object.values(JSON.parse(todosEX));
+    todos = JSON.parse(todosEX);
 }
 
 class Item {
