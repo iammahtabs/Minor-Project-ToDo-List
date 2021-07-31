@@ -23,25 +23,15 @@ class Item {
     addToDo(itemName) {
 
         const li = document.createElement("li");
-        li.appendChild(document.createTextNode(itemName));
+        li.id = itemName;
+        li.innerHTML = itemName;
 
         const crossSpan = document.createElement("span");
         crossSpan.className = "delete";
         crossSpan.innerHTML = '&#10006;';
-        crossSpan.addEventListener('click', () => this.clearOption(li, itemName));
 
         list.appendChild(li);
         li.appendChild(crossSpan);
-
-    }
-
-
-    clearOption(li, itemName) {
-
-        li.parentNode.removeChild(li);
-        let index = todos.indexOf(itemName);
-        todos.splice(index, 1);
-        window.localStorage.setItem("todos", JSON.stringify(todos));
 
     }
 
@@ -77,6 +67,30 @@ function check() {
 list.addEventListener('click', (ev) => {
     if (ev.target.tagName === 'LI') {
         ev.target.classList.toggle('checked');
+        let text = ev.target.id;
+        let index = todos.indexOf(text);
+        console.log(index);
+        if (ev.target.innerHTML.includes("<strike>")) {
+            text = text.replace("<strike>", "");
+            text = text.replace("</strike>", "");
+            ev.target.innerHTML = text + '<span class = "delete">✖</span>';
+            ev.target.id = text;
+            todos[index] = text;
+        }
+        else{
+            ev.target.innerHTML = '<strike>' + text + '</strike><span class = "delete">✖</span>';
+            ev.target.id = '<strike>' + text + '</strike>';
+            todos[index] = '<strike>' + text + '</strike>';
+        }
+        window.localStorage.setItem("todos", JSON.stringify(todos));
+
+    }
+    if (ev.target.className === "delete") {
+        const parent = ev.target.parentNode;
+        let index = todos.indexOf(parent.id);
+        todos.splice(index, 1);
+        window.localStorage.setItem("todos", JSON.stringify(todos));
+        ev.target.parentNode.remove();
     }
 }, false);
 
