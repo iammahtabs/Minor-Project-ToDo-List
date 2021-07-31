@@ -97,29 +97,12 @@ ul li {
     user-select: none;
 }
 
-ul li:hover {
-    background: cornflowerblue;
-    color: white;
-}
-
 ul li.checked {
     background: royalblue;
     color: black;
-    text-decoration: line-through;
+    /* text-decoration: line-through; */
 }
 
-ul li.checked::before {
-    content: '';
-    position: absolute;
-    border-color: springgreen;
-    border-style: solid;
-    border-width: 0 2px 2px 0;
-    top: 16px;
-    left: 10px;
-    transform: rotate(45deg);
-    height: 10px;
-    width: 5px;
-  }
 
 .delete {
     position: absolute;
