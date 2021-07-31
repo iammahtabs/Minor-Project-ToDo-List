@@ -69,7 +69,6 @@ list.addEventListener('click', (ev) => {
         ev.target.classList.toggle('checked');
         let text = ev.target.id;
         let index = todos.indexOf(text);
-        console.log(index);
         if (ev.target.innerHTML.includes("<strike>")) {
             text = text.replace("<strike>", "");
             text = text.replace("</strike>", "");
