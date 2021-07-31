@@ -100,7 +100,6 @@ ul li {
 ul li.checked {
     background: royalblue;
     color: black;
-    /* text-decoration: line-through; */
 }
 
 
